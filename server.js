@@ -22,6 +22,8 @@ MongoClient.connect(dbConnectionString)
 app.set('view engine', 'ejs') //sets up the view engine to render ejs -> html
 app.use(express.json()) // lets express parse the json data
 app.use(express.static('public')) //client side files
+app.use(express.urlencoded({extended:true})) // parses the url that are being back and forth between the server
+app.use(express(cors())) //allows app use between database and local
 
 app.listen(process.env.PORT || PORT, () => {
     console.log('That THANG is thangin.')
